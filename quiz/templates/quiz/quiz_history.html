@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="m-16">
+    <h2 class="text-4xl font-bold mb-12 text-center">Quiz History</h2>
+  {% if user_history %}
+    <div class="overflow-x-auto w-3/4 mx-auto text-center">
+      <table class="min-w-full bg-white rounded-lg overflow-hidden shadow-md">
+        <thead class="bg-gray-800 text-white text-center">
+          <tr>
+            <th class="py-3 px-6 text-center">Quiz Title</th>
+            <th class="py-3 px-6 text-center">Scores</th>
+            <th class="py-3 px-6 text-center">Completed At</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-300">
+          {% for history_entry in user_history %}
+            <tr class="hover:bg-gray-100 transition-all">
+              <td class="py-4 px-6 whitespace-nowrap">{{ history_entry.quiz.title }}</td>
+              <td class="py-4 px-6">{{ history_entry.scores }} points</td>
+              <td class="py-4 px-6">
+                {% if history_entry.completed_at %}
+                    {{ history_entry.completed_at|date:"M j, Y g:i a" }}
+                {% else %}
+                  Not completed
+                {% endif %}
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <div class="mt-8 text-center text-gray-600">
+      <p>No quiz history available.</p>
+      <p class="mt-4 text-sm">Start a quiz now to build your history!</p>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Quiz Realm{% endblock %}
+
+{% block content %}
+<div class="container mx-auto mt-8">
+    <h1 class="text-4xl font-bold mb-4">Quiz List</h1>
+
+    <div class="bg-white text-white rounded rounded-lg">
+        <div class="container mx-auto mx-2 p-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <a href="{% url 'quiz_list' %}" class="font-bold p-2 bg-blue-900 text-center rounded hover:border-transparent hover:text-dark hover:bg-blue-700">All Categories</a>
+            {% for category in categories %}
+                <a href="{% url 'quiz_list_category' category_id=category.id %}" class="font-bold p-2 bg-blue-900 text-center rounded hover:border-transparent hover:text-dark hover:bg-blue-700">{{ category.name }}</a>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% if quizzes %}
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {% for quiz in quizzes %}
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-xl font-semibold mb-2">{{ quiz.title }}</h2>
+                    <p class="text-gray-700">{{ quiz.description }}</p>
+                    <p class="text-gray-700 mt-2">Avg Rating: {{ quiz.average_rating|default:0|floatformat:1 }} out of 7</p>
+                    <p class="text-gray-700 text-sm mt-2">Category: {{ quiz.category }}</p>
+                    <div class="mt-4"><a href="{% url 'quiz' quiz_id=quiz.id %}" class="font-bold p-1 px-2 bg-blue-900 text-center text-white rounded hover:border-transparent hover:text-dark hover:bg-blue-700">Start Quiz</a></div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="mt-4">No quizzes available.</p>
+    {% endif %}
+</div>
+{% endblock %}

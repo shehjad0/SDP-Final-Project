@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="h-screen bg-gray-300">
+    <div class="pt-24"></div>
+    <div class="mx-auto max-w-3xl p-16 bg-white rounded-md shadow-md">
+      <div class="grid grid-cols-2 gap-4">
+        <div class="col-span-1">
+          <h2 class="text-3xl font-bold mb-4">{{ quiz.title }}</h2>
+        </div>
+        <div class="col-span-1 text-right">
+          <p class="text-gray-600">Question {{ current_question_number }} of {{ total_questions }}</p>
+        </div>
+      </div>
+
+      <form method="post" action="{% url 'quiz' quiz_id=quiz.id %}" class="mt-6" onsubmit="return validateForm()">
+        {% csrf_token %}
+    
+        <h3 class="text-lg font-semibold mb-4">{{ current_question.question_text }}</h3>
+    
+        {% if feedback %}
+              {% for choice in current_question.choices.all %}
+                <div class="mb-3 flex items-center">
+                    <label >{{ choice.choice_text }}</label>
+                </div>
+              {% endfor %}
+    
+        {% else %}
+            {% for choice in current_question.choices.all %}
+                <div class="mb-3 flex items-center">
+                    <input type="radio" name="choice" value="{{ choice.id }}" id="choice_{{ choice.id }}" class="mr-2 focus:ring-0 focus:outline-none">
+                    <label for="choice_{{ choice.id }}" class="cursor-pointer">{{ choice.choice_text }}</label>
+                </div>
+            {% endfor %}
+
+            <button type="submit" class="bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300 ease-in-out focus:outline-none focus:ring focus:border-blue-300">
+                Confirm
+            </button>
+        {% endif %}
+    </form>
+
+      {% if feedback %}
+        <div class="mt-6">
+          {% if feedback == "Correct" %}
+            <div class="p-1 bg-green-500 rounded w-1/6 text-center"><p class="text-white">{{ feedback }}</p></div>
+          {% else %}
+            <div class="p-1 bg-red-500 rounded w-1/6 text-center"><p class="text-white">{{ feedback }}</p></div>
+          {% endif %}
+          {% if current_question_number < total_questions %}
+            <a href="{% url 'quiz' quiz_id=quiz.id %}" class="block w-full bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300 ease-in-out focus:outline-none focus:ring focus:border-blue-300 text-center mt-4">
+              Next Question
+            </a>
+          {% else %}
+            <a href="{% url 'quiz_result' quiz_id=quiz.id %}" class="block w-full bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300 ease-in-out focus:outline-none focus:ring focus:border-blue-300 text-center mt-4">
+              Check Result
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <script>
+    function validateForm() {
+        var choices = document.getElementsByName('choice');
+        var checked = false;
+
+        for (var i = 0; i < choices.length; i++) {
+            if (choices[i].checked) {
+                checked = true;
+                break;
+            }
+        }
+
+        if (!checked) {
+            alert('Please select an option before submitting.');
+            return false;
+        }
+
+        return true;
+    }
+  </script>
+{% endblock %}

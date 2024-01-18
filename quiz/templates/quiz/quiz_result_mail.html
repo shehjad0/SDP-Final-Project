@@ -1,0 +1,16 @@
+<div>
+    <h2>Quiz Result</h2>
+    <p>Dear {{ user.first_name }} {{ user.last_name }},</p>
+
+    <p>Congratulations on completing the quiz "{{ quiz.title }}". Here are your results:</p>
+
+    <ul>
+        <li>Total Questions: {{ total_questions }}</li>
+        <li>Scores: {{ quiz_history.scores }}</li>
+    </ul>
+
+    <p>Thank you for participating in the quiz. If you have any questions or concerns, feel free to contact us.</p>
+
+    <p>Best regards,<br>
+    Quiz Realm Team</p>
+</div>
