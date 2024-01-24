@@ -33,7 +33,7 @@
                 </div>
             {% endfor %}
 
-            <button type="submit" class="bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300 ease-in-out focus:outline-none focus:ring focus:border-blue-300">
+            <button type="submit" class="bg-black text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300 ease-in-out focus:outline-none focus:ring focus:border-blue-300">
                 Confirm
             </button>
         {% endif %}
@@ -47,11 +47,11 @@
             <div class="p-1 bg-red-500 rounded w-1/6 text-center"><p class="text-white">{{ feedback }}</p></div>
           {% endif %}
           {% if current_question_number < total_questions %}
-            <a href="{% url 'quiz' quiz_id=quiz.id %}" class="block w-full bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300 ease-in-out focus:outline-none focus:ring focus:border-blue-300 text-center mt-4">
+            <a href="{% url 'quiz' quiz_id=quiz.id %}" class="block w-full bg-black text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300 ease-in-out focus:outline-none focus:ring focus:border-blue-300 text-center mt-4">
               Next Question
             </a>
           {% else %}
-            <a href="{% url 'quiz_result' quiz_id=quiz.id %}" class="block w-full bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300 ease-in-out focus:outline-none focus:ring focus:border-blue-300 text-center mt-4">
+            <a href="{% url 'quiz_result' quiz_id=quiz.id %}" class="block w-full bg-black text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300 ease-in-out focus:outline-none focus:ring focus:border-blue-300 text-center mt-4">
               Check Result
             </a>
           {% endif %}
