@@ -3,10 +3,10 @@
 {% block title %}Quiz Realm - Result{% endblock %}
 
 {% block content %}
-<div class="container mx-auto mt-40 text-center">
+<div class="container mx-auto mt-40 mb-30 text-center">
     <h1 class="text-4xl font-extrabold mb-8 text-black">Quiz Result</h1>
     <p class="text-2xl mb-6">Your Final Score:</p>
-    <p class="text-5xl text-blue-600 font-bold mb-8">{{ final_score }} / {{ quiz.questions.count }}</p>
+    <p class="text-5xl text-black font-bold mb-8">{{ final_score }} / {{ quiz.questions.count }}</p>
 
     <form method="post" action="{% url 'quiz_result' quiz.id %}">
         {% csrf_token %}
