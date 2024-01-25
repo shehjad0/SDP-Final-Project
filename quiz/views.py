@@ -97,7 +97,10 @@ def quiz_result(request, quiz_id):
 
 @login_required
 def quiz_ranking(request):
-    ranked_quizzes = Quiz.objects.annotate(avg_rating=Avg('quizrating__rating')).order_by('-avg_rating')
+    ranked_quizzes = Quiz.objects.annotate(
+        avg_rating=Coalesce(Avg('quizrating__rating'), 0.0)
+    ).order_by('-avg_rating')
+
     return render(request, 'quiz/quiz_ranking.html', {'ranked_quizzes': ranked_quizzes})
 
 @login_required
