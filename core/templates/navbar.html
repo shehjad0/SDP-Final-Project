@@ -1,18 +1,21 @@
 <nav class="bg-black p-4">
-    <div class="container mx-auto flex items-center justify-between">
+    <div id="navlink" class="mx-auto flex items-center justify-between px-4">
         <div class="text-white text-2xl font-bold">
-            <a href="{% url 'home' %}" class="text-white">Quiz Realm</a>
+            <a href="{% url 'home' %}" class="text-white brand flex justify-content-center align-items-center">
+                <span class="hidden lg:block"><img src="https://static.wikia.nocookie.net/no-place-like-home/images/d/d3/Q.png/revision/latest?cb=20210506113638" alt="Quiz Image" class="bg-white rounded" style="width: 40px; height: 40px; margin-right: 10px;"></span>
+                <span>Quiz Realm</span>
+            </a>
         </div>
 
-        <div class="flex space-x-4">
+        <div class="flex space-x-4" style="font-size: 1.25rem;">
             <a href="{% url 'home' %}" class="text-white">Home</a>
-            <a href="{% url 'about' %}" class="text-white">About</a>
-            <a href="{% url 'faq' %}" class="text-white">FAQ</a>
+            <a href="{% url 'about' %}" class="hidden sm:block text-white">About</a>
+            <a href="{% url 'faq' %}" class="hidden sm:block text-white">FAQ</a>
             {% if request.user.is_authenticated %}
-            <a href="{% url 'quiz_list' %}" class="text-white">Quizzes</a>
-            <a href="{% url 'quiz_ranking' %}" class="text-white">Quiz Ranking</a>
-            <a href="{% url 'quiz_history' %}" class="text-white">History</a>
-            <a href="{% url 'leaderboard' %}" class="text-white">Leaderboard</a>
+            <a href="{% url 'quiz_list' %}" class="hidden sm:block text-white">Quizzes</a>
+            <a href="{% url 'quiz_ranking' %}" class="hidden sm:block text-white">Quiz Ranking</a>
+            <a href="{% url 'quiz_history' %}" class="hidden sm:block text-white">History</a>
+            <a href="{% url 'leaderboard' %}" class="hidden sm:block text-white">Leaderboard</a>
             <a href="{% url 'profile' %}" class="text-white">Profile</a>
             <a href="{% url 'logout' %}" class="text-white">Logout</a>
             {% else %}

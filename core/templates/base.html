@@ -6,9 +6,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="Dummy Library Management System" />
         <title>{% block title %}{% endblock %}</title>
-        <link rel="icon" href="https://t3.ftcdn.net/jpg/01/97/33/16/360_F_197331643_RqUqQjFWljVPna0L04HwhevtSrFgWp0n.webp">
+        {% comment %} <link rel="icon" href="https://static.wikia.nocookie.net/no-place-like-home/images/d/d3/Q.png/revision/latest?cb=20210506113638"> {% endcomment %}
+        <link rel="icon" href="https://i.postimg.cc/65Dw83Dy/image-removebg-preview.png">
+        {% comment %} https://ibb.co/FB98vM7 {% endcomment %}
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans">
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
         <style>
@@ -28,6 +32,43 @@
                 width: 100%;
                 max-height: 66vh;
                 object-fit: cover;
+            }
+            .brand {
+                font-family: "Righteous", sans-serif;
+                font-weight: 100;
+                font-style: normal;
+            }
+            .font-2 {
+                font-family: "Raleway", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 500;
+                font-style: normal;
+            }
+            #navlink a {
+                position: relative;
+                text-decoration: none;
+                color: white;
+                transition: color 0.2s ease-in-out;
+            }
+        
+            #navlink a:hover {
+                color: #fff;
+            }
+        
+            #navlink a::after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 3px;
+                background-color: #fff;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                transition: width 0.2s ease-in-out;
+            }
+        
+            #navlink a:hover::after {
+                width: 100%;
             }
         </style>
         {% block custom_style %}{% endblock %}

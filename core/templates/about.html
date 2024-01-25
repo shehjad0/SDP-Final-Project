@@ -3,25 +3,29 @@
 {% block title %}About{% endblock %}
 
 {% block content %} 
-<div class="py-48 bg-gray-200 text-black flex justify-content-center align-items-center" style="font-size: 4rem;">
+{% comment %} <div class="py-48 bg-gray-200 text-black flex justify-content-center align-items-center" style="font-size: 4rem;">
     <h1>About Us</h1>
+</div> {% endcomment %}
+<div class="py-48 bg-gray-200 text-black flex justify-content-center align-items-center" style="font-size: 4rem; background-image: url('https://img.freepik.com/free-photo/about-us-information-service-sharing-join-concept_53876-124056.jpg?w=1380&t=st=1706193222~exp=1706193822~hmac=04c42f3f37631d015547c24ae366a3e8ce062eaca448be06be46dd3d7e562331'); background-size: cover; background-position: center center;">
+  {% comment %} <h1 class="p-12 bg-black bg-opacity-50 text-white rounded">Frequently Asked Questions</h1> {% endcomment %}
+  <h1 class="p-12"></h1>
 </div>
 <div id="accordion"class="py-12 w-2/3 mx-auto my-16">
     <div class="text-black grid lg:grid-cols-2 grid-cols-1 mx-auto mb-12">
-      <div class="flex justify-content-center align-items-center">
+      <div class="flex justify-content-center align-items-center lg:order-2 pb-8 lg:pb-0">
+        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Quiz Image" class="object-cover w-full h-full rounded">
+    </div>
+
+      <div class="flex justify-content-center align-items-center lg:order-1">
           <div>
               <p class="text-xl py-4 w-4/5 mx-auto ">
                 Welcome to Quiz Realm, a dynamic hub for knowledge seekers and quiz enthusiasts! Our platform was crafted with the vision of making learning not only informative but also entertaining. Here, you'll find an extensive array of quizzes spanning diverse topics, each designed to captivate and challenge your intellect. At Quiz Realm, we believe that curiosity is the driving force behind every great mind, and our quizzes are tailored to spark that curiosity in learners of all backgrounds. Whether you're a seasoned quizmaster or a newcomer to the world of trivia, join us on a journey where every quiz is a step toward expanding your understanding of the world around you.
               </p>
           </div>
       </div>
-
-      <div class="flex justify-content-center align-items-center">
-          <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Quiz Image" class="object-cover w-full h-full rounded">
-      </div>
     </div>
     <div class="text-black grid lg:grid-cols-2 grid-cols-1 mx-auto mb-12">
-      <div class="flex justify-content-center align-items-center">
+      <div class="flex justify-content-center align-items-center pb-8 lg:pb-0">
         <img src="https://images.unsplash.com/photo-1606326608690-4e0281b1e588?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Quiz Image" class="object-cover w-full h-full rounded">
       </div>
 

@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="container mx-auto mt-8">
-    <h1 class="text-4xl font-bold mb-4 text-black">Quiz List</h1>
+    <h1 class="font-bold mb-4 text-black" style="font-size: 4rem;">Quiz List</h1>
 
     <div class="bg-white text-white rounded rounded-lg">
         <div class="container mx-auto mx-2 p-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
@@ -15,10 +15,12 @@
         </div>
     </div>
 
+    <hr class="my-4" />
+
     {% if quizzes %}
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-12 mb-32">
             {% for quiz in quizzes %}
-                <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
                     <h2 class="text-xl font-semibold mb-2">{{ quiz.title }}</h2>
                     <p class="text-gray-700">{{ quiz.description }}</p>
                     <p class="text-gray-700 mt-2">Avg Rating: {{ quiz.average_rating|default:0|floatformat:1 }} out of 7</p>
